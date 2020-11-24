@@ -5,15 +5,15 @@ on:
 
 env:
   AZURE_FUNCTIONAPP_NAME: samplefunctions00  # set this to your application's name
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'    # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '2.2.402'              # set this to the dotnet version to use
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: './DemoFunction'    # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '3.1.402'              # set this to the dotnet version to use
 
 jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
     - name: 'Checkout GitHub Action'
-      uses: actions/checkout@Function
+      uses: actions/checkout@master
 
     - name: Setup DotNet ${{ env.DOTNET_VERSION }} Environment
       uses: actions/setup-dotnet@v1
@@ -32,4 +32,4 @@ jobs:
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-        publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+        publish-profile: '<publishData><publishProfile profileName="samplefunctions00 - Web Deploy" publishMethod="MSDeploy" publishUrl="samplefunctions00.scm.azurewebsites.net:443" msdeploySite="samplefunctions00" userName="$samplefunctions00" userPWD="ogAzDjLj68e0cLE0GYogHc1sjai4SDfc4uBxLlX5TNmbaZiTLfDGGdJCMtFi" destinationAppUrl="http://samplefunctions00.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="samplefunctions00 - FTP" publishMethod="FTP" publishUrl="ftp://waws-prod-blu-193.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="samplefunctions00\$samplefunctions00" userPWD="ogAzDjLj68e0cLE0GYogHc1sjai4SDfc4uBxLlX5TNmbaZiTLfDGGdJCMtFi" destinationAppUrl="http://samplefunctions00.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData>'
