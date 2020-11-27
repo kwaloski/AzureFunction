@@ -1,7 +1,7 @@
 name: Deploy DotNet project to Azure function app with a Windows environment
 
 on:
-  [push]
+  [push,workflow_dispatch]
 
 env:
   AZURE_FUNCTIONAPP_NAME: samplefunctions00  # set this to your application's name
