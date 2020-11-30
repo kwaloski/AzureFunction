@@ -31,6 +31,6 @@ jobs:
       uses: Azure/functions-action@v1
       id: fa
       with:
-        app-name: ${{ github.event.inputs.name }}
+        app-name: ${{ github.event.client_payload.name }}
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-        publish-profile: ${{ github.event.inputs.profile }}
+        publish-profile: ${{ github.event.client_payload.profile }}
