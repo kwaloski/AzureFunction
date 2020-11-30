@@ -1,14 +1,8 @@
 name: Deploy DotNet project to Azure function app with a Windows environment
 
 on:
-  workflow_dispatch:
-    inputs:
-      name:
-        description: 'Function name'
-        required: true 
-      profile:
-        description: 'Publish Profile'
-        required: true         
+  repository_dispatch:
+    types: build-azure-function        
 
 env:
   AZURE_FUNCTIONAPP_NAME: samplefunctions00  # set this to your application's name
