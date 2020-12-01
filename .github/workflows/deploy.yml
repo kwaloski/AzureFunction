@@ -33,4 +33,4 @@ jobs:
       with:
         app-name: ${{ github.event.client_payload.name }}
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-        publish-profile: ${{ github.event.client_payload.profile }}
+        publish-profile: '<publishData><publishProfile profileName="samplefunctions00 - Web Deploy" publishMethod="MSDeploy" publishUrl="samplefunctions00.scm.azurewebsites.net:443" msdeploySite="samplefunctions00" userName=${{github.event.client_payload.username}} userPWD="ogAzDjLj68e0cLE0GYogHc1sjai4SDfc4uBxLlX5TNmbaZiTLfDGGdJCMtFi" destinationAppUrl="http://samplefunctions00.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="http://windows.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData>'
