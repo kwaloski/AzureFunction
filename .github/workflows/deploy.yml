@@ -16,7 +16,7 @@ jobs:
     - name: Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       uses: actions/checkout@v2
       with:
-        ref: ${{ 'Function' }}
+        ref: ${{ github.event.client_payload.branch || 'master' }}
         path: AzureFunction
     - name: 'Checkout GitHub Action'
       uses: actions/checkout@master
