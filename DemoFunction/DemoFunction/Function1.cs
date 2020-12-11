@@ -18,7 +18,7 @@ namespace DemoFunction
             ILogger log)
         {
             log.LogInformation("C# HTTP trigger function processed a request.");
-
+            string accountKey = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
             string name = req.Query["name"];
 
             string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
@@ -29,7 +29,7 @@ namespace DemoFunction
             //    ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
             //    : $"Hello, {name}. This HTTP triggered function executed successfully.";
 
-            return new OkObjectResult("Thank for trigeering");
+            return new OkObjectResult("Thank for trigeering and"+accountKey);
         }
     }
 }
